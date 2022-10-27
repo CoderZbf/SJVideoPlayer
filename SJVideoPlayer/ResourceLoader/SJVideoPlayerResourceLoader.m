@@ -58,6 +58,26 @@ static NSBundle *zhHantBundle = nil;
     return zhHantBundle;
 }
 
+/// 更新用户语言偏好设置
++ (void)refreshUserPreferredLanguage:(NSString *)language {
+    bundle = [NSBundle bundleWithPath:[[NSBundle bundleForClass:[self class]] pathForResource:@"SJVideoPlayer" ofType:@"bundle"]];
+    NSString *preferredLanguage = language;
+    if      ( [preferredLanguage hasPrefix:@"en"] ) {
+        preferredLanguage = @"en";
+    }
+    else if ( [preferredLanguage hasPrefix:@"zh"] ) {
+        preferredLanguage = [preferredLanguage rangeOfString:@"Hans"].location != NSNotFound ? @"zh-Hans" : @"zh-Hant";
+    }
+    else {
+        preferredLanguage = @"en";
+    }
+    preferredLanguageBundle = [NSBundle bundleWithPath:[bundle pathForResource:preferredLanguage ofType:@"lproj"]];
+    enBundle = [NSBundle bundleWithPath:[bundle pathForResource:@"en" ofType:@"lproj"]];
+    zhHansBundle = [NSBundle bundleWithPath:[bundle pathForResource:@"zh-Hans" ofType:@"lproj"]];
+    zhHantBundle = [NSBundle bundleWithPath:[bundle pathForResource:@"zh-Hant" ofType:@"lproj"]];
+}
+
+
 + (nullable UIImage *)imageNamed:(NSString *)name {
     if ( 0 == name.length )
         return nil;

@@ -16,5 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (class, nonatomic, readonly) NSBundle *enBundle;
 @property (class, nonatomic, readonly) NSBundle *zhHansBundle; // 简体中文
 @property (class, nonatomic, readonly) NSBundle *zhHantBundle; // 繁體中文
++ (void)refreshUserPreferredLanguage:(NSString *)language;
 @end
 NS_ASSUME_NONNULL_END

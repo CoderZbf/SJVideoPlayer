@@ -365,6 +365,14 @@ NSNotificationName const SJVideoPlayerConfigurationsDidUpdateNotification = @"SJ
     return _localizedStrings;
 }
 
+- (void)refreshUserPreferredLanguage {
+    SJVideoPlayerLocalizedStrings *strings = SJVideoPlayerLocalizedStrings.alloc.init;
+    [strings setFromBundle:SJVideoPlayerResourceLoader.preferredLanguageBundle];
+    _localizedStrings = strings;
+
+}
+
+
 - (id<SJVideoPlayerControlLayerResources>)resources {
     if ( _resources == nil ) {
         SJVideoPlayerControlLayerResources *resources = SJVideoPlayerControlLayerResources.alloc.init;

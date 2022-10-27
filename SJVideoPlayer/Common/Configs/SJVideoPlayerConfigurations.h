@@ -35,6 +35,7 @@ UIKIT_EXTERN NSNotificationName const SJVideoPlayerConfigurationsDidUpdateNotifi
 @property (nonatomic, strong, null_resettable) id<SJVideoPlayerControlLayerResources> resources;
  
 @property (nonatomic) NSTimeInterval animationDuration; // default value is 0.4
+- (void)refreshUserPreferredLanguage;
 
 @end
   
