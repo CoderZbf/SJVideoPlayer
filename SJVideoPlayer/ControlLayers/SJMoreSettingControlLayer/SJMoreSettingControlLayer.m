@@ -120,6 +120,8 @@ SJEdgeControlButtonItemTag const SJMoreSettingControlLayerItem_Rate = 10002;
 
 - (void)sliderWillBeginDragging:(SJProgressSlider *)slider {
     if ( slider.tag == SJMoreSettingControlLayerItem_Volume ) {
+
+        // 这里报错了
         _videoPlayer.deviceVolumeAndBrightnessController.volumeTracking = YES;
     }
     else if ( slider.tag == SJMoreSettingControlLayerItem_Brightness ) {
